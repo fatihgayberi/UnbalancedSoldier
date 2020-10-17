@@ -32,8 +32,8 @@ public class PlatformEditor : MonoBehaviour
     public void EnemyCounter()
     {
         scoreEnemy += 1;
-        enemyCommander.transform.position = new Vector3(enemyCommander.transform.position.x, 5 - (scoreEnemy / 2), enemyCommander.transform.position.z);
-        soldierImage.GetComponent<UnityEngine.UI.Image>().sprite = allNumber[(int)scoreEnemy];
+        soldierCommander.transform.position = new Vector3(soldierCommander.transform.position.x, 5 - (scoreEnemy / 2), soldierCommander.transform.position.z);
+        enemyImage.GetComponent<UnityEngine.UI.Image>().sprite = allNumber[(int)scoreEnemy];
         if (scoreEnemy == 10)
         {
             winPanel.gameObject.SetActive(true);
@@ -46,12 +46,12 @@ public class PlatformEditor : MonoBehaviour
     public void SoldierCounter()
     {
         scoreSoldier += 1;
-        soldierCommander.transform.position = new Vector3(soldierCommander.transform.position.x, 5 - (scoreSoldier / 2), soldierCommander.transform.position.z);
-        enemyImage.GetComponent<UnityEngine.UI.Image>().sprite = allNumber[(int)scoreSoldier];
+        soldierImage.GetComponent<UnityEngine.UI.Image>().sprite = allNumber[(int)scoreSoldier];
+        enemyCommander.transform.position = new Vector3(enemyCommander.transform.position.x, 5 - (scoreSoldier / 2), enemyCommander.transform.position.z);
         if (scoreSoldier == 10)
         {
             winPanel.gameObject.SetActive(true);
-            winText.text = "Win Enemy";
+            winText.text = "Win Soldier";
             Time.timeScale = 0;
         }
     }
